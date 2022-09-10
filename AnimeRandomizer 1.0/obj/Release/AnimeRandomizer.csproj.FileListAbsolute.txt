@@ -1,0 +1,16 @@
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\bin\Release\AnimeRandomizer.exe.config
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\bin\Release\AnimeRandomizer.exe
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\bin\Release\AnimeRandomizer.pdb
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\Log.g.cs
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\MainWindow.g.cs
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\App.g.cs
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\AnimeRandomizer_MarkupCompile.cache
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\AnimeRandomizer_MarkupCompile.lref
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\Log.baml
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\MainWindow.baml
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\AnimeRandomizer.g.resources
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\AnimeRandomizer.Properties.Resources.resources
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\AnimeRandomizer.csproj.GenerateResource.cache
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\AnimeRandomizer.csproj.CoreCompileInputs.cache
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\AnimeRandomizer.exe
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\AnimeRandomizer.pdb

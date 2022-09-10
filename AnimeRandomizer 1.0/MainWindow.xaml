@@ -1,0 +1,425 @@
+﻿<Window x:Name="MainWindow1" x:Class="AnimeRandomizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:local="clr-namespace:AnimeRandomizer"
+        xmlns:a="namespace:AnimeRandomizer"
+        mc:Ignorable="d"
+        Title="AnimeRandomizer" Height="576" Width="1024" MinWidth="550" MinHeight="350" WindowStartupLocation="CenterScreen" Background="#B2FFFFFF">
+
+    <Grid ScrollViewer.CanContentScroll="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="694*"/>
+            <ColumnDefinition Width="323*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="31"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu FontSize="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" Background="#C4E2E2E2" Grid.ColumnSpan="2">
+            <MenuItem Header="Транформации" Height="30" Width="150" FontFamily="Mistral" FontSize="24">
+                <MenuItem x:Name="menubutton0" Click="Menubutton0_Click" Header="Imanity | No Price" Height="30" HorizontalAlignment="Left" Width="300" Margin="0,0,0,0" >
+                    <MenuItem.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0E252C" Offset="0"/>
+                            <GradientStop Color="#FF50AFFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </MenuItem.Background>
+                </MenuItem>
+                <MenuItem x:Name="menubutton1" Click="Menubutton1_Click" Header="Winx | 100 гривен" Height="30" HorizontalAlignment="Left" Width="300" Background="#B220F393" Margin="0,0,0,0" />
+                <MenuItem x:Name="menubutton2" Click="Menubutton2_Click" Header="Enchantix | 300 гривен" Height="30" HorizontalAlignment="Left" Width="300" Background="#B2F08709" Margin="0,0,-0,0" />
+                <MenuItem x:Name="menubutton3" Click="Menubutton3_Click" Header="Belivix | 700 гривен" Height="30" Width="300" HorizontalAlignment="Left" Background="#B25832FF" Margin="0,0,-0,0" />
+                <MenuItem x:Name="menubutton4" Click="Menubutton4_Click" Header="Mahou Shoujo | 1200 гривен" Height="30" Width="300" HorizontalAlignment="Left" Background="#B2F50BE0" Margin="0,0,-0,0" />
+                <MenuItem x:Name="menubutton5" Click="Menubutton5_Click" Header="Grand... GRAND... | 5 Йен" Height="30" Width="300" HorizontalAlignment="Left" Background="#B289DFFF" Margin="0,0,-0,0" />
+                <MenuItem x:Name="menubutton7" Click="Menubutton7_Click" Header="Back to default | 1 гривна" Height="30" Width="300" HorizontalAlignment="Left" Background="#4CFFFFFF" Margin="0,0,-0,0" />
+                <MenuItem x:Name="menubutton6" Click="Menubutton6_Click" Header="Real Life Man | Exit" Cursor='aero_link_im.cur' Height="30" Width="300" HorizontalAlignment="Left" Background="#B2705753" Margin="0,0,-0,0" />
+            </MenuItem>
+        </Menu>
+        <Button x:Name="LogVisibleButton" Content="Показать Жюрналь" FontSize="20" FontFamily="Segoe Script" Click="LogVisibleButton_Click" HorizontalContentAlignment="Center" Background="{x:Null}" Width="280" MinWidth="228" HorizontalAlignment="Right" Cursor="Hand" BorderBrush="#FF707070" ToolTip="Это так-то бесполезная кнопка. Не полезнее ежа на заводе презервативов." Grid.Column="1"/>
+        <Grid x:Name="grid" ScrollViewer.CanContentScroll="True" Grid.Row="1" Focusable="True" Grid.ColumnSpan="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250*" MinWidth="210"/>
+                <ColumnDefinition Width="321*" MinWidth="270"/>
+                <ColumnDefinition Width="445*" MinWidth="310"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="TBPreviewIsOFF" Grid.Column="2" Background="#B2000000" Margin="2" FontSize="48" FontWeight="Bold" FontFamily="Stencil" TextAlignment="Center" Visibility="Hidden" ><Run/><LineBreak/><LineBreak/><Run Text="Preview"/><LineBreak/><Run Text="is"/><LineBreak/><Run Text="OFF"/><LineBreak/><Run Text="👀"/></TextBlock>
+            <Grid x:Name="GridPreviewIsON" Grid.Column="2" Background="#63000000" ScrollViewer.CanContentScroll="True">
+                <!--ON-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="2" Grid.RowSpan="4" BorderBrush="Black"/>
+
+                <Grid Grid.Row="1" Background="#26FFFFFF" Margin="2,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="6.28*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--<Button Style="{StaticResource ButtonStyle1}" x:Name="ShowSortedListButtom" Content="Без фильтрации" Background="#00000000" Cursor="Hand" ToolTip="Позволяет временно отменить применение фильтра к списку, то есть добавляет весь импортированный список." FontSize="16" FontFamily="Segoe Script" BorderBrush="{x:Null}" Grid.Column="1" Margin="0" Foreground="Black" BorderThickness="0" />-->
+                    <CheckBox x:Name="CBShowSortedList" Content="Фильтрация" Background="{x:Null}" Cursor="Hand" ToolTip="Определяет, применять ли фильтрацию к списку." FontSize="18" FontFamily="Segoe Script" BorderBrush="#7F000000" Grid.Column="1" Foreground="Black" BorderThickness="1" IsChecked="{Binding IsShowFiltredList, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" Unchecked="CBShowSortedList_Checked" Checked="CBShowSortedList_Checked" HorizontalAlignment="Left" Padding="4,-1,10,0" />
+                    <Grid MinWidth="123">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="27"/>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition Width="47"/>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition Width="47"/>
+                        </Grid.ColumnDefinitions>
+                        <Border BorderThickness="1,2,1,1" BorderBrush="Black" Opacity="0.5"/>
+                        <Grid Margin="1,2,1,1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4"/>
+                                <RowDefinition Height="4"/>
+                                <RowDefinition Height="4"/>
+                                <RowDefinition Height="4"/>
+                                <RowDefinition Height="4"/>
+                                <RowDefinition Height="4"/>
+                            </Grid.RowDefinitions>
+                            <Border Background="#7FF3FF00" Grid.Row="0"/>
+                            <Border Background="#7F00D1FF" Grid.Row="1"/>
+                            <Border Background="#7F4D1CF3" Grid.Row="2"/>
+                            <Border Background="#7F1ABE00" Grid.Row="3"/>
+                            <Border Background="#7FAE9215" Grid.Row="4"/>
+                            <Border Background="#7FB21818" Grid.Row="5"/>
+                        </Grid>
+                        <!--<Button x:Name="ShikiGroupMetodButton" Style="{StaticResource ButtonStyle1}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0" Cursor="Hand" Click="ShikiGroupMetodButton_Click"/>-->
+                        <CheckBox x:Name="CBShikiGroupMetodButton" IsChecked="{Binding IsSortShikiGroupMetod, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" Background="{x:Null}" BorderBrush="Black" Checked="CBShikiGroupMetodButton_Checked" Unchecked="CBShikiGroupMetodButton_Checked" />
+                        <Button Style="{StaticResource ButtonStyle1}" Content="ALL ON" Grid.Column="2" BorderBrush="{x:Null}" Background="#59000000" Padding="1" BorderThickness="0" FontSize="16" UseLayoutRounding="False" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Mistral" FontWeight="Bold" Cursor="Hand" Click="AllAnimeisON" Foreground="#FF898989" />
+                        <Button Style="{StaticResource ButtonStyle1}" Content="ALL OFF" Grid.Column="4" BorderBrush="{x:Null}" Background="#59000000" Padding="1" BorderThickness="0" FontSize="16" UseLayoutRounding="False" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Mistral" FontWeight="Bold" Cursor="Hand" Click="AllAnimeisOFF" Foreground="#FF898989" />
+
+
+
+                    </Grid>
+                </Grid>
+                <TextBlock FontSize="20" TextAlignment="Center" Text="Выбранные аниме" Background="#3AFFFFFF" TextWrapping="Wrap" FontWeight="SemiBold" Margin="2,2,2,0"/>
+                <Grid Grid.Row="2" Background="#11FFFFFF" Margin="2,0" ToolTip="Кнопки сортировки">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="65" />
+                        <ColumnDefinition Width="42" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock TextWrapping="Wrap" Text="Ep" FontSize="20" FontFamily="Snap ITC" TextDecorations="{x:Null}" TextAlignment="Center" Grid.Column="2" MinWidth="70"/>
+                    <TextBlock TextWrapping="Wrap" Text="☆" FontSize="20" FontFamily="Snap ITC" TextDecorations="{x:Null}" TextAlignment="Center" Grid.Column="1" MinWidth="50"/>
+                    <TextBlock TextWrapping="Wrap" FontSize="20" FontFamily="Snap ITC" TextDecorations="{x:Null}" TextAlignment="Center" Grid.Column="0" Text="Title" MinWidth="91" Margin="0"/>
+                    <TextBlock TextWrapping="Wrap" FontSize="20" FontFamily="Snap ITC" TextDecorations="{x:Null}" TextAlignment="Center" Grid.Column="3" Text="Type" MinWidth="65" Margin="0" Width="65"/>
+                    <Button x:Name="SortByTitleButton" Content="" Grid.Column="0" Cursor="ScrollS" Background="#00000000" BorderBrush="#02686868" Opacity="0.1" Click="SortByTitleButton_Click" />
+                    <Button x:Name="SortByEpisodesButton" Content="" Grid.Column="2" Cursor="ScrollS" Background="#00000000" BorderBrush="#02686868" Opacity="0.1" Click="SortByEpisodesButton_Click" />
+                    <Button x:Name="SortByStarButton" Content="" Grid.Column="1" Cursor="ScrollS" Background="#00000000" BorderBrush="#02686868" Opacity="0.1" Click="SortByStarButton_Click" />
+                    <Button x:Name="SortByTypeButton" Content="" Grid.Column="3" Cursor="ScrollS" Background="#00000000" BorderBrush="#02686868" Opacity="0.1" Click="SortByTypeButton_Click" Grid.ColumnSpan="1" />
+                    <!--<CheckBox x:Name="CBScrollChanger" Content="" Checked="ScrollBarVisible_ON" Unchecked="ScrollBarVisible_OFF" Grid.Column="4" Background="{x:Null}" BorderBrush="#7F000000" ToolTip="Включить ползунок прокрутки?"/>-->
+                </Grid>
+
+
+                <ListBox x:Name="CurrentAnimeList" Grid.Row="4" Background="#00000000" BorderBrush="{x:Null}" Foreground="#FF0B1791" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="0" Margin="2,0,2,2"/>
+                <!--<ScrollViewer x:Name="ScrollViewer1" Grid.Row="4" VerticalScrollBarVisibility="Hidden">
+                    <StackPanel x:Name="CurrentAnimeList" Margin="2,0">
+                        <StackPanel.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#0C000000" Offset="0"/>
+                                <GradientStop Color="#4C000000" Offset="1"/>
+                            </LinearGradientBrush>
+                        </StackPanel.Background>
+                        -->
+                <!--<local:AnimeGrid Height="30" Margin="2,0" Background="#FFAE9215" ToolTip="df" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="65" />
+                                <ColumnDefinition Width="17"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Column="2" Background="{x:Null}" Margin="1,1,1,1" BorderBrush="{x:Null}" Text="123/234" FontFamily="Calibri" FontSize="18" TextAlignment="Center" TextDecorations="{x:Null}" IsReadOnly="True" SelectionBrush="{x:Null}" Foreground="Black" ClipToBounds="True" BorderThickness="0" SelectionOpacity="1" Cursor="Arrow" AllowDrop="False" />
+                            <TextBox Grid.Column="1" Background="{x:Null}" Margin="1,1,1,1" BorderBrush="{x:Null}" Text="10" FontFamily="Calibri" FontSize="18" TextAlignment="Center" TextDecorations="{x:Null}" IsReadOnly="True" SelectionBrush="{x:Null}" Foreground="Black" ClipToBounds="True" BorderThickness="0" SelectionOpacity="1" Cursor="Arrow" AllowDrop="False" />
+                            <TextBox x:Name="textBox" Background="{x:Null}" Margin="1,1,1,1" BorderBrush="{x:Null}" Text="Mondaiji-tachi ga isekai kara Kuru sou desu yo?" FontFamily="Calibri" FontSize="18" TextAlignment="Center" IsReadOnly="True" ToolTip="{Binding Text, ElementName=textBox, Mode=OneWay}" SelectionBrush="{x:Null}" Foreground="Black" ClipToBounds="True" BorderThickness="0" SelectionOpacity="1" Cursor="Arrow" AllowDrop="False"/>
+                            <TextBox Grid.Column="3" Background="{x:Null}" Margin="1,1,1,1" BorderBrush="{x:Null}" Text="ONA" FontFamily="Calibri" FontSize="18" TextAlignment="Center" TextDecorations="{x:Null}" IsReadOnly="True" SelectionBrush="{x:Null}" Foreground="Black" ClipToBounds="True" BorderThickness="0" SelectionOpacity="1" Cursor="Arrow" AllowDrop="False" />
+                            <CheckBox Content="CheckBox" Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="2"/>
+                            <Button Content="" Grid.ColumnSpan="5" Background="{x:Null}" BorderBrush="{x:Null}" Panel.ZIndex="10"/>
+                        </local:AnimeGrid>-->
+                <!--
+                    </StackPanel>
+                </ScrollViewer>-->
+
+            </Grid>
+            <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                <Grid Background="#2B000000">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Border BorderThickness="2" Grid.RowSpan="4" BorderBrush="#7F000000" MinWidth="150"/>
+                    <Border BorderThickness="0,0,0,1" Grid.RowSpan="3" BorderBrush="#3F000000" MinWidth="150" Margin="2,0"/>
+                    <TextBlock FontSize="18" TextAlignment="Center" Text="Настроечки" TextWrapping="Wrap" FontWeight="SemiBold" Margin="2,-1,2,0" Padding="0"/>
+                    <!--<ComboBox x:Name="ProfileOptionsList" Margin="10,2" Grid.RowSpan="1" Grid.Row="1" Opacity="0.7" StaysOpenOnEdit="True" BorderBrush="#FFBB0000" Width="160" SelectionChanged="ProfileOptionsList_SelectionChanged">
+                        <ComboBox.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="#FFE00202" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ComboBox.Background>
+                        <ComboBoxItem x:Name="comboBoxItem" Content="Sample" HorizontalAlignment="Left" MinWidth="160" Background="#4C808080" BorderBrush="#4C000000" ToolTip="{Binding Content, ElementName=comboBoxItem}"/>
+                    </ComboBox>
+                    <Grid Width="180" MinWidth="120" Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,2" MinHeight="20">
+                        <Button x:Name="RemoveCurrentOptionsProfileButton" Style="{StaticResource ButtonStyle1}" Background="#33000000" HorizontalAlignment="Left" Content="Удалить" Padding="0" Width="55" Margin="0" BorderBrush="#5E000000" Height="18" VerticalAlignment="Center" Click="RemoveCurrentOptionsProfileButton_Click"/>
+                        <Button x:Name="AddProfileButton" Style="{StaticResource ButtonStyle1}" Background="#33000000" HorizontalAlignment="Right" Content="Создать" Padding="0" Width="55" Margin="0" BorderBrush="#5E000000" Height="18" VerticalAlignment="Center" Click="AddProfileButton_Click"/>
+
+                    </Grid>-->
+
+
+                    <Grid Grid.Row="3" Margin="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="21"/>
+                            <RowDefinition Height="28"/>
+                            <RowDefinition Height="45"/>
+                            <RowDefinition Height="45"/>
+                            <RowDefinition Height="148"/>
+                            <RowDefinition Height="106"/>
+                            <RowDefinition Height="49.667"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock FontSize="18" TextAlignment="Center"  TextWrapping="Wrap" Margin="2,0" Padding="0" FontFamily="Sitka Banner"><Run Text="Логин"/><Run Text=" на шикимори:"/></TextBlock>
+
+
+                        <Grid Grid.Row="1" Width="200" Margin="1,0">
+                            <TextBox x:Name="TBUsername" Background="#59FFFFFF" SelectionBrush="#7F0078D7" BorderBrush="#7F000000" Foreground="#99000000" Padding="0,-3,0,0" VerticalScrollBarVisibility="Disabled" Margin="35,3" MaxLines="1" Text="username" UndoLimit="10" MinWidth="20" MaxWidth="200" HorizontalContentAlignment="Center" FontSize="16"/>
+                            <Button  Style="{StaticResource ButtonStyle1}" Width="22" Height="22" BorderBrush="#7F000000" Background="#59F4FF83" Padding="0,-4,0,0" Cursor="Hand" BorderThickness="1" 
+                                     FontSize="18" VerticalContentAlignment="Center" FontWeight="Bold" RenderTransformOrigin="0.5,0.5"  HorizontalContentAlignment="Center" Margin="1,3" HorizontalAlignment="Left" Visibility="Hidden" />
+
+                            <Button x:Name="ExportFromShikiButton" Style="{StaticResource ButtonStyle1}" Margin="1,3" Width="22" Height="22" BorderBrush="#7F000000" Background="#598CCAFF" Padding="0,-4,0,0" Cursor="Hand" BorderThickness="1"
+                                    Content="↸" FontSize="18" VerticalContentAlignment="Center" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" ToolTip="Экспортировать список с шикимори. Цвет напоминает о том, что список этого юзера ещё не экспортирован." Click="ExportFromShikiButton_Click" HorizontalAlignment="Right" >
+                                <Button.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="180"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Button.RenderTransform>
+                            </Button>
+
+                        </Grid>
+
+                        <TextBlock FontSize="18" TextAlignment="Center"  TextWrapping="Wrap" Margin="2,0" Padding="0" FontFamily="Sitka Banner" Grid.Row="2" Height="20" VerticalAlignment="Top">Кол-во серий:</TextBlock>
+                        <Grid Grid.Row="2" Margin="1,22,1,0" VerticalAlignment="Top" Height="23" Width="160" MinWidth="140" MinHeight="23">
+                            <TextBox x:Name="TBMaxCountEp" Background="#7FFFFFFF" SelectionBrush="#7F0078D7" BorderBrush="#7F000000" Foreground="#E5000000" Padding="0" VerticalScrollBarVisibility="Disabled" MaxLines="1" Text="100000" UndoLimit="10" Height="22" HorizontalContentAlignment="Center" FontSize="16" Grid.Row="2" Width="60" Margin="0" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                            <TextBox x:Name="TBMinCountEp" Background="#7FFFFFFF" SelectionBrush="#7F0078D7" BorderBrush="#7F000000" Foreground="#E5000000" Padding="0" VerticalScrollBarVisibility="Disabled" MaxLines="1" Text="0" UndoLimit="10" Height="22" HorizontalContentAlignment="Center" FontSize="16" Grid.Row="2" Width="60" Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                            <TextBlock FontSize="18" TextAlignment="Center"  TextWrapping="Wrap" Margin="0" Padding="0" FontFamily="Sitka Banner" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center">―</TextBlock>
+                        </Grid>
+
+                        <TextBlock FontSize="18" TextAlignment="Center"  TextWrapping="Wrap" Margin="2,0" Padding="0" FontFamily="Sitka Banner" Grid.Row="3" Height="20" VerticalAlignment="Top">Оценка:</TextBlock>
+                        <Grid Grid.Row="3" Margin="1,20,1,0" VerticalAlignment="Top" Height="23" Width="160" MinWidth="140" MinHeight="23">
+                            <TextBox x:Name="TBMaxScore" Background="#7FFFFFFF" SelectionBrush="#7F0078D7" BorderBrush="#7F000000" Foreground="#E5000000" Padding="0" VerticalScrollBarVisibility="Disabled" MaxLines="1" Text="10" UndoLimit="10" Height="22" HorizontalContentAlignment="Center" FontSize="16" Grid.Row="2" Width="60" Margin="0" VerticalAlignment="Top" HorizontalAlignment="Right" ToolTip="Значение этого параметра выше 10 отключит автоматическую загрузку списка с Шикимори при каждом запуске. Му-ха-ха-ха-ха! Настройки, которых мы заслуживаем))0" />
+                            <TextBox x:Name="TBMinScore" Background="#7FFFFFFF" SelectionBrush="#7F0078D7" BorderBrush="#7F000000" Foreground="#E5000000" Padding="0" VerticalScrollBarVisibility="Disabled" MaxLines="1" Text="0" UndoLimit="10" Height="22" HorizontalContentAlignment="Center" FontSize="16" Grid.Row="2" Width="60" Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                            <TextBlock FontSize="18" TextAlignment="Center"  TextWrapping="Wrap" Margin="0" Padding="0" FontFamily="Sitka Banner" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center">―</TextBlock>
+                        </Grid>
+
+                        <TextBlock FontSize="18" TextAlignment="Center"  TextWrapping="Wrap" Margin="2,0" Padding="0" FontFamily="Sitka Banner" Grid.Row="5" Height="20" VerticalAlignment="Top"><Run Text="Тип выхода:"/><LineBreak/><Run/></TextBlock>
+                        <Border Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="1" Margin="1,20,1,0" BorderBrush="#7F808080">
+                            <WrapPanel MaxWidth="198">
+                                <CheckBox x:Name="CBTypeTV" Content="TV-Сериал" Background="#7F808080" BorderBrush="#7F707070" Foreground="Black" IsChecked="True" FontFamily="Segoe Print" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Padding="0" Width="197" Height="21"        />
+                                <CheckBox x:Name="CBTypeMov" Content="Фильм" Background="#7F808080" BorderBrush="#7F707070" Foreground="Black" IsChecked="True" FontFamily="Segoe Print" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Padding="0" Width="99" Height="21"             />
+                                <CheckBox x:Name="CBTypeOva" Content="OVA" Background="#7F808080" BorderBrush="#7F707070" Foreground="Black" IsChecked="True" FontFamily="Segoe Print" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Padding="0" Width="99" Height="21"               />
+                                <CheckBox x:Name="CBTypeSP" Content="Спешл" Background="#7F808080" BorderBrush="#7F707070" Foreground="Black" IsChecked="True" FontFamily="Segoe Print" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Padding="0" Width="99" Height="21"             />
+                                <CheckBox x:Name="CBTypeOna" Content="ONA" Background="#7F808080" BorderBrush="#7F707070" Foreground="Black" IsChecked="True" FontFamily="Segoe Print" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Padding="0" Width="99" Height="21"              />
+                                <CheckBox x:Name="CBTypeMus" Content="Клип" Background="#7F808080" BorderBrush="#7F707070" Foreground="Black" IsChecked="True" FontFamily="Segoe Print" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Padding="0" Width="99" Height="21"             />
+                                <CheckBox x:Name="CBTypeNull" Content="Не определён" Background="#7F808080" BorderBrush="#7F707070" Foreground="Black" IsChecked="True" FontFamily="Segoe Print" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Padding="0" Width="99" Height="21"    />
+
+                            </WrapPanel>
+                        </Border>
+
+                        <TextBlock FontSize="18" TextAlignment="Center"  TextWrapping="Wrap" Margin="2,0" Padding="0" FontFamily="Sitka Banner" Grid.Row="4" Height="20" VerticalAlignment="Top">Статус в списке:</TextBlock>
+                        <Border Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="1" Margin="1,20,1,0" BorderBrush="#7F808080">
+                            <StackPanel Grid.Row="4" Margin="0">
+
+                                <CheckBox x:Name="CBStatusPlan" Content="Запланированно" Background="#7FF3FF00" BorderBrush="#7F707070" Foreground="Black" IsChecked="True" FontFamily="Segoe Print" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Padding="0"      />
+                                <CheckBox x:Name="CBStatusWatch" Content="Смотрю" Background="#7F00D1FF" BorderBrush="#7F707070" Foreground="Black" IsChecked="True" FontFamily="Segoe Print" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Padding="0"                      />
+                                <CheckBox x:Name="CBStatusRewatch" Content="Пересматриваю" Background="#7F4D1CF3" BorderBrush="#7F707070" Foreground="Black" IsChecked="True" FontFamily="Segoe Print" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Padding="0"    />
+                                <CheckBox x:Name="CBStatusCompl" Content="Просмотрено" Background="#7F1ABE00" BorderBrush="#7F707070" Foreground="Black" IsChecked="True" FontFamily="Segoe Print" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Padding="0"           />
+                                <CheckBox x:Name="CBStatusOnHold" Content="Отложено" Background="#7FAE9215" BorderBrush="#7F707070" Foreground="Black" IsChecked="True" FontFamily="Segoe Print" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Padding="0"                    />
+                                <CheckBox x:Name="CBStatusDrop" Content="Брошено" Background="#7FB21818" BorderBrush="#7F707070" Foreground="Black" IsChecked="True" FontFamily="Segoe Print" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Padding="0"                          />
+
+                            </StackPanel>
+                        </Border>
+                        <Grid Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="1,5,1,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="ChangeCurrentSettings" Grid.Column="2" Style="{StaticResource ButtonStyle1}" Content="Применить ➾" Cursor="Hand" BorderThickness="1" Background="#598CCAFF" BorderBrush="#7F000000" FontStyle="Oblique" Click="ChangeCurrentSettings_Click" FontSize="18" Height="29" ToolTip="Применить изменения настроек фильтрации и, если предосмотр включён, обновить его. Цветом оповещает о непринятых изминениях в настройках." Padding="10,1" />
+                            <!--<Button x:Name="a1" Grid.Column="0" Style="{StaticResource ButtonStyle1}" Content="Применить ➾" IsDefault="True" Cursor="Hand" BorderThickness="1" Background="#5974B977" BorderBrush="#7F000000" FontStyle="Oblique" Click="ChangeCurrentSettings_Click" FontSize="18" Width="32" Height="29" />-->
+                            <Border Width="50" Height="29" Grid.Column="0" BorderBrush="#7F000000" BorderThickness="1" Background="#598CCAFF"/>
+                            <CheckBox x:Name="CBIsPreview" Unchecked="CBIsPreview_Unchecked" Checked="CBIsPreview_Checked" IsChecked="{Binding IsPreview, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" Grid.Column="0" Content="👀" Cursor="Hand" FontSize="18" Width="50" Height="29" Background="{x:Null}" BorderBrush="#2C000000" ToolTip="Показывать предварительный список? Малость долго обновляется каждый раз))0" />
+                            <Button Content="↺" x:Name="SetCurrentSortOptionToDefaultButton" Width="15" Height="29" ToolTip="Настройки фильтрации по умолчанию" Click="SetCurrentSortOptionToDefaultButton_Click" Style="{StaticResource ButtonStyle1}" Cursor="Hand" BorderThickness="1" Background="#598CCAFF" BorderBrush="#7F000000" FontSize="18" Grid.Column="1" Padding="-5,0" HorizontalContentAlignment="Center"/>
+
+                        </Grid>
+
+                        <!--<ComboBox Grid.Row="4" Margin="0,30,0,0" Width="150" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" />-->
+
+                    </Grid>
+
+                </Grid>
+            </ScrollViewer>
+
+
+            <GridSplitter Grid.Column="1" Width="2" Background="#00000000" Foreground="{x:Null}"/>
+            <GridSplitter Grid.Column="2" Width="2" HorizontalAlignment="Left" Foreground="{x:Null}" Background="#00000000"/>
+            <GridSplitter Grid.Column="0" Width="2" Background="#00000000" Foreground="{x:Null}"/>
+            <GridSplitter Grid.Column="1" Width="2" HorizontalAlignment="Left" Foreground="{x:Null}" Background="#00000000"/>
+            <Border BorderThickness="2" BorderBrush="#BF000000" Grid.Column="1"/>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="128"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Height="128" BorderBrush="#7F000000" BorderThickness="0,0,0,2" Margin="2,0"/>
+                <DockPanel Margin="2,2,2,0">
+
+                    <Grid DockPanel.Dock="Top" VerticalAlignment="Top">
+                        <TextBlock FontSize="19" TextAlignment="Center" Text="Рандомилка" Background="#A5FFFFFF" TextWrapping="Wrap" FontWeight="SemiBold" VerticalAlignment="Top" DockPanel.Dock="Top" Height="26"/>
+                        <Image Source="InNewWindowIcon.png" HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Height="20" Margin="0,3,4,0"/>
+
+                        <Button Style="{StaticResource ButtonStyle1}" x:Name="OpenWinnersInNewWindowButton" Width="24" Height="24" Margin="0,1,2,0" Background="#00000000" BorderBrush="#99000000" Foreground="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Click="OpenWinnersInNewWindowButton_Click" ToolTip="Отобразить победителей в отдельном окне"/>
+                    </Grid>
+                    <Grid DockPanel.Dock="Top">
+                        <TextBlock FontSize="18" Padding="3" FontFamily="Mistral" Text="ВЫШЕ ОЦЕНКА - ВЫШЕ ШАНС" VerticalAlignment="Top" Height="28" TextAlignment="Center"/>
+                        <CheckBox x:Name="CBIsRatingModifyChance" IsChecked="{Binding IsRatingModifyChance, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" Height="28" VerticalAlignment="Top" Background="#59FFFFFF" BorderBrush="#7F000000" Cursor="Hand" ToolTip="Пока что может дублировать победителей, если их задано больше одного и список для рандома достаточно мал"></CheckBox>
+                        <Grid Margin="0,28,0,0" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="18" TextAlignment="Center" Padding="3" VerticalAlignment="Top" FontFamily="Mistral" Margin="0" HorizontalAlignment="Left" ><Run Text="КОЛ-ВО ПОБЕДИТЕЛЕЙ"/><Run Text=":"/></TextBlock>
+                            <TextBox x:Name="TBWinnersCount" Text="{Binding WinnersCount, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" Background="{x:Null}" SelectionBrush="#7F000000" BorderBrush="#7F000000" Foreground="#E5000000" VerticalScrollBarVisibility="Disabled" MaxLines="1" UndoLimit="10" FontSize="18" Grid.Column="1" FontFamily="Mistral" TextAlignment="Center" Margin="15,0" />
+                        </Grid>
+                        <Button Style="{StaticResource ButtonStyle1}" Cursor='Rin.cur' x:Name="RandomizeSorted" VerticalAlignment="Top" FontFamily="Algerian" FontSize="24" Click="RandomizeSorted_Click" BorderBrush="#7F000000" Margin="0,58,0,0" Padding="10,1" HorizontalAlignment="Center" Width="201" Height="34" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#00000000" Panel.ZIndex="5" Foreground="{x:Null}" BorderThickness="2"/>
+                        <TextBlock x:Name="TBRandomizeSorted" VerticalAlignment="Top" FontFamily="Algerian" FontSize="24" Margin="0,58,0,0" Padding="10,1" HorizontalAlignment="Center" Width="201" Height="34">
+                            <TextBlock.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                    <GradientStop Color="White"/>
+                                    <GradientStop Color="Black" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TextBlock.Foreground>
+                            <TextBlock.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                    <GradientStop Color="#BFFFFFFF" Offset="0.809"/>
+                                    <GradientStop Color="#BF000000" Offset="0.191"/>
+                                </LinearGradientBrush>
+                            </TextBlock.Background>
+                            <Span>
+                                <Span.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <GradientStop Color="White"/>
+                                        <GradientStop Color="Red" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Span.Foreground> R
+                            </Span>
+                            <Span>
+                                <Span.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <GradientStop Color="White" Offset="0.196"/>
+                                        <GradientStop Color="#FFFFF300" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Span.Foreground> A
+                            </Span>
+                            <Span>
+                                <Span.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <GradientStop Color="White"/>
+                                        <GradientStop Color="Cyan" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Span.Foreground> N
+                            </Span>
+                            <Span>
+                                <Span.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <GradientStop Color="White"/>
+                                        <GradientStop Color="#FF6800FF" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Span.Foreground> D
+                            </Span>
+                            <Span>
+                                <Span.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <GradientStop Color="White"/>
+                                        <GradientStop Color="#FF2EFF00" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Span.Foreground> O
+<Span>
+                                <Span.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <GradientStop Color="White"/>
+                                        <GradientStop Color="#FFFF8B00" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Span.Foreground> O
+                            </Span>
+                                <Span>
+                                <Span.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <GradientStop Color="White"/>
+                                        <GradientStop Color="#FF0046FF" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Span.Foreground> O
+                            </Span>
+                                <Span>
+                                <Span.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <GradientStop Color="White"/>
+                                        <GradientStop Color="Red" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Span.Foreground> M
+                            </Span>
+                                <Span >
+                                    <Span.Foreground>
+                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                    <GradientStop Color="White"/>
+                                    <GradientStop Color="#FFF300FF" Offset="1"/>
+                                </LinearGradientBrush>
+                                    </Span.Foreground> !
+                            </Span>
+                            </Span>
+                        </TextBlock>
+                    </Grid>
+                </DockPanel>
+                <ListBox x:Name="ResultAnimeList" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#00000000" BorderBrush="#7F000000" BorderThickness="2"/>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Window>
+<!--
+    
+    Checked="CBStatusPlan_Checked" Unchecked="CBStatusPlan_Unchecked"         
+    Checked="CBStatusWatch_Checked"   Unchecked="CBStatusWatch_Unchecked"     
+     Checked="CBStatusRewatch_Checked" Unchecked="CBStatusRewatch_Unchecked"  
+    Checked="CBStatusCompl_Checked"   Unchecked="CBStatusCompl_Unchecked"     
+    Checked="CBStatusOnHold_Checked"  Unchecked="CBStatusOnHold_Unchecked"    
+     Checked="CBStatusDrop_Checked"    Unchecked="CBStatusDrop_Unchecked"     
+    
+    Checked="CBTypeTV_Checked"  Unchecked="CBTypeTV_Unchecked"   
+    Checked="CBTypeMov_Checked"  Unchecked="CBTypeMov_Unchecked" 
+    Checked="CBTypeOva_Checked"  Unchecked="CBTypeOva_Unchecked" 
+    Checked="CBTypeSP_Checked"  Unchecked="CBTypeSP_Unchecked"   
+    Checked="CBTypeOna_Checked"  Unchecked="CBTypeOna_Unchecked" 
+    Checked="CBTypeMus_Checked"  Unchecked="CBTypeMus_Unchecked" 
+    Checked="CBTypeNull_Checked" Unchecked="CBTypeNull_Unchecked"
+    
+    -->
