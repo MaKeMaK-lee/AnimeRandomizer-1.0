@@ -615,7 +615,7 @@ namespace AnimeRandomizer
             //try
             //{
             //    string sURL;
-            //    sURL = "https://shikimori.one/" + _Username + "/list_export/animes.xml";
+            //    sURL = "https://shikimori.me/" + _Username + "/list_export/animes.xml";
             //
             //    
             //    wrSHIKI = WebRequest.Create(sURL);
@@ -659,7 +659,7 @@ namespace AnimeRandomizer
             try
             {
                 WebClient client = new WebClient();
-                client.DownloadFileAsync(new Uri("https://shikimori.one/" + _Username + "/list_export/animes.xml"), "Latest_export_animelist.xml");
+                client.DownloadFileAsync(new Uri("https://shikimori.me/" + _Username + "/list_export/animes.xml"), "Latest_export_animelist.xml");
             }
             catch
             {
@@ -690,7 +690,7 @@ namespace AnimeRandomizer
             try
             {
                 string sURL;
-                sURL = "https://shikimori.one/" + _Username + "/list_export/animes.xml";
+                sURL = "https://shikimori.me/" + _Username + "/list_export/animes.xml";
 
                 
                 wrSHIKI = WebRequest.Create(sURL);

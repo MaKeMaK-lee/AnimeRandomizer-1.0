@@ -52,7 +52,7 @@ namespace AnimeRandomizer
         //Обработчик нажатия по названию для вкл\выкл в сортировке
         public void AnimeInList_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://shikimori.org/animes/" + A.series_animedb_id);
+            System.Diagnostics.Process.Start("https://shikimori.me/animes/" + A.series_animedb_id);
         }
 
     }
