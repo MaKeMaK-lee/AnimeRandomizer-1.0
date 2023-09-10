@@ -1,15 +1,11 @@
-﻿<Window x:Name="MainWindow1" x:Class="AnimeRandomizer.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
-        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         xmlns:local="clr-namespace:AnimeRandomizer"
         xmlns:a="namespace:AnimeRandomizer"
         mc:Ignorable="d"
+        x:Name="MainWindow1" x:Class="AnimeRandomizer.MainWindow"
         Title="AnimeRandomizer" Height="576" Width="1024" MinWidth="550" MinHeight="350" WindowStartupLocation="CenterScreen" Background="#B2FFFFFF">
 
     <Grid ScrollViewer.CanContentScroll="True">

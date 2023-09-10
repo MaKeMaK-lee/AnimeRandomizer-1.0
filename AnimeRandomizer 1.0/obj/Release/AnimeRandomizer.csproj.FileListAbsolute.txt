@@ -14,3 +14,9 @@ C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\AnimeRandomizer.cspro
 C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\AnimeRandomizer.csproj.CoreCompileInputs.cache
 C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\AnimeRandomizer.exe
 C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\AnimeRandomizer.pdb
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\Winners.g.cs
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\App.baml
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\Theme1.baml
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\Winners.baml
+C:\Users\Akatsuki\source\repos\AnimeRandomizer\obj\Release\AnimeRandomizer.csproj.AssemblyReference.cache

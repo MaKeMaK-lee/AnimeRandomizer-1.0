@@ -1,7 +1,7 @@
 <Profiles>
   <Profile name="">
     <username value="username" />
-    <transformation value="4" />
+    <transformation value="6" />
     <SortOptions>
       <MaxEp value="100000" />
       <MinEp value="0" />

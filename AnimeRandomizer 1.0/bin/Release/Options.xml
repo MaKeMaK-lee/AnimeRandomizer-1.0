@@ -1,0 +1,30 @@
+<Profiles>
+  <Profile name="">
+    <username value="username" />
+    <transformation value="0" />
+    <SortOptions>
+      <MaxEp value="100000" />
+      <MinEp value="0" />
+      <MinRewatchTimes value="0" />
+      <MaxScore value="10" />
+      <MinScore value="0" />
+      <StatusAllowed>
+        <Completed value="True" />
+        <Plan_to_Watch value="True" />
+        <Watching value="True" />
+        <Rewatching value="True" />
+        <On_Hold value="True" />
+        <Dropped value="True" />
+      </StatusAllowed>
+      <TypeAllowed>
+        <Tv value="True" />
+        <Ova value="True" />
+        <Special value="True" />
+        <Movie value="True" />
+        <Ona value="True" />
+        <Music value="True" />
+        <Undefined value="True" />
+      </TypeAllowed>
+    </SortOptions>
+  </Profile>
+</Profiles>
